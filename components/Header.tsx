@@ -3,6 +3,7 @@ import { MagnifyingGlassIcon, UserCircleIcon } from "@heroicons/react/16/solid";
 import Avatar from "react-avatar";
 import Image from "next/image";
 
+
 function Header() {
   return (
     <header>
@@ -34,7 +35,7 @@ function Header() {
           </form>
 
           {/* Avatar */}
-          <Avatar name="Oyewole Shedrack" round color="#0055d1" size="50" />
+          <Avatar name="Oyewole Shedrack" round color="#0055d1" size="50" className="cursor-pointer"/>
         </div>
       </div>
 

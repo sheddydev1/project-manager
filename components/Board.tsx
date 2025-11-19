@@ -1,13 +1,25 @@
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+"use client"
+import { useEffect } from 'react';
+import { DragDropContext, Droppable } from '@hello-pangea/dnd';
+import { getTodosGroupByColumn } from '@/lib/getTodosGroupByColumn';
 
 function Board() {
+  useEffect(() => {
+   getTodosGroupByColumn();
+  }, [])
+  
+
+   
   return (
-    
-        <DragDropContext>
-            <Droppable droppableId='board' direction='horizontal' type='column'
-            // {(provided) => <div></div>}
-            ></Droppable>
-        </DragDropContext>
+  
+    <div>Hello jjsj</div>
+        // <DragDropContext>
+        //     <Droppable droppableId='board' direction='horizontal' type='column'>
+              
+        //       {(provided) => <div></div>}
+
+        //     </Droppable>
+        // </DragDropContext>
    
   )
 }
