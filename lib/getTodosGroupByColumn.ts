@@ -29,7 +29,27 @@ export const getTodosGroupByColumn = async () => {
 
     }, new Map<TypedColumn, Column>());
 
-   console.log(columns.get("todo"));
+    //if no columns exist, create default columns
+    const columnTypes: TypedColumn[] = ["todo", "inprogress", "done"]
+    for(const columnType of columnTypes){
+    if(!columns.get(columnType)){
+        columns.set(columnType, {
+            id: columnType,
+            todos: [],
+        });
+    }
+    }
+    // sort columns by columnTypes
+    const sortedColumns = new Map(
+        Array.from(columns.entries()).sort((a, b) => 
+        columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0])
+        )
+    )
+    const Board: Board = {
+        columns: sortedColumns,
+    };
+
+    return Board;
 };
 
 
